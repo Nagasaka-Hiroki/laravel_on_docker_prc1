@@ -16,3 +16,18 @@
 |php|8.1.21([php:8.1.21-zts-bullseye](https://hub.docker.com/layers/library/php/8.1.21-zts-bullseye/images/sha256-550261b4070fa89b047d77e60c21f4f37735bfe52ef016452e3bbbbc0fff4a94?context=explore))|
 |composer|[composer:lts](https://hub.docker.com/layers/library/composer/lts/images/sha256-72aa420e4d4d2a048bed21fe34bb3d70e05c13ddd728c65ef0b2de1bd0e0edf4?context=explore)|
 |Laravel|9.*|
+
+## Laravelの準備
+### Laravelのインストールとコンテナの立ち上げ方
+　以下の要領でコマンドを実行し、開発及び実行環境を構築する。ディレクトリは`./prj`とする。
+
+```bash
+#事前にdocker pull composer:ltsを実行してイメージを入手する。
+
+#Laravel 9.*をインストールする。
+docker run -u=$(id -u):$(id -g) --rm --interactive --tty --volume $PWD:/app composer:lts create-project "laravel/laravel=9.*" ./prj
+#コンテナの環境変数をセットする。
+./gen_envfile.sh
+#コンテナを立ち上げる。
+docker compose up -d --build
+```

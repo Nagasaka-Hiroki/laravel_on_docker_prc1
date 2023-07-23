@@ -44,3 +44,26 @@ php artisan serve --host=$IP_ADDRESS
 ```bash
 php artisan serve --host=$(hostname -i)
 ```
+
+# 参考文献
+## 一次情報
+- [Laravel - The PHP Framework For Web Artisans](https://laravel.com/)
+- [Laravel - ウェブ職人のためのPHPフレームワーク](http://laravel.jp/)
+
+## 本やWeb上の情報
+　記録に残っている参考にした本とサイトを記す。
+- [PHPフレームワーク Laravel入門 第2版 - 秀和システム あなたの学びをサポート！](https://www.shuwasystem.co.jp/book/9784798060996.html)
+- [［改訂第3版］Linuxコマンドポケットリファレンス：書籍案内｜技術評論社](https://gihyo.jp/book/2015/978-4-7741-7404-4)
+- [Composer](https://getcomposer.org/)
+- [Composer｜dockerhub](https://hub.docker.com/_/composer)
+- [ComposerをDockerコンテナで動かす - Qiita](https://qiita.com/PitPat/items/dc1ad09f7936b8825473)
+- [Composerの導入＆使い方（初心者の復習用） - Qiita](https://qiita.com/suke/items/770bccf8a43f9247daf5)
+- [docker run するときにUID,GIDを指定する - Qiita](https://qiita.com/manabuishiirb/items/83d675afbf6b4eea90e4)
+- [docker run｜Docker Documentation](https://docs.docker.com/engine/reference/commandline/run/)
+- [シェルで現在のユーザーID・グループIDを取得する方法｜LFI](https://linuxfan.info/post-1813)
+- [Packagist](https://repo.packagist.org/)
+- [Laravelでインストール時にバージョン指定する方法](https://technolog.jp/laravel-version-install/)
+- [artisan serve で任意のhost,portを指定する方法 - Qiita](https://qiita.com/do9iigane/items/32083f843db1e5a63fc3)
+- [シェルスクリプトのデバッグ｜UNIX &amp; Linux コマンド・シェルスクリプト リファレンス](https://shellscript.sunone.me/debug.html)
+- [bashのヒアドキュメントを活用する - Qiita](https://qiita.com/take4s5i/items/e207cee4fb04385a9952)
+- [Dockerコンテナの内部IPアドレスを確認する方法 - Qiita](https://qiita.com/ponsuke0531/items/7e8e5081993a30afdc4a)

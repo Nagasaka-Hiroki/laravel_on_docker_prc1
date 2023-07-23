@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  php:
+    container_name: laravel_prj
+    image: php-bullseye:8.1.21
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        - GROUP_NAME=${GROUP_NAME}
+        - USER_NAME=${USER_NAME}
+        - WORK_DIR=${WORK_DIR}
+        - USER_ID=${USER_ID}
+        - GROUP_ID=${GROUP_ID}
+    user: ${USER_NAME}
+    volumes:
+      - type: bind
+        source: ${PRJ_PATH}
+        target: ${WORK_DIR}
+    restart: "no"
+    tty: true
+    working_dir: ${WORK_DIR}
+    networks:
+      laravel_network:
+        ipv4_address: 172.20.0.2
+networks:
+  laravel_network:
+    name: laravel_network
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.1

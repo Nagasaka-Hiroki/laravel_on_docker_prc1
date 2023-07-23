@@ -31,3 +31,16 @@ docker run -u=$(id -u):$(id -g) --rm --interactive --tty --volume $PWD:/app comp
 #コンテナを立ち上げる。
 docker compose up -d --build
 ```
+
+### サーバーを起動して確認する
+　サーバーを起動するためには、まずIPアドレスを調べる。コンテナに入って`hostname -i`で確認する、または`docker-compose.yml`からIPアドレスを確認する。（IPアドレスを`$IP_ADDRESS`として以下に記述する。）<br />
+　コンテナのIPアドレス(`$IP_ADDRESS`)をもとにサーバを立ち上げる。以下のコマンドを実行し、`http://$IP_ADDRESS:8000/`にアクセスする。うまく行けば`Laravel`と書かれたページが表示される。
+
+```bash
+php artisan serve --host=$IP_ADDRESS
+```
+
+以下のコマンドでも起動する。
+```bash
+php artisan serve --host=$(hostname -i)
+```

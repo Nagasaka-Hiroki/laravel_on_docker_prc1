@@ -9,7 +9,11 @@
 </head>
 <body>
     <h1>Blade/Index</h1>
-    <p>{{$msg}}</p>
+    @if ($msg != '')
+        <p>こんにちわ{{$msg}}さん。</p>
+    @else
+        <p>何か書いてください。</p>
+    @endif
     <form method="POST" action="/hello">
         @csrf
         <input type="text" name="msg">

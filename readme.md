@@ -67,3 +67,41 @@ php artisan serve --host=$(hostname -i)
 - [シェルスクリプトのデバッグ｜UNIX &amp; Linux コマンド・シェルスクリプト リファレンス](https://shellscript.sunone.me/debug.html)
 - [bashのヒアドキュメントを活用する - Qiita](https://qiita.com/take4s5i/items/e207cee4fb04385a9952)
 - [Dockerコンテナの内部IPアドレスを確認する方法 - Qiita](https://qiita.com/ponsuke0531/items/7e8e5081993a30afdc4a)
+
+## メモ
+　第5章はLaravelの機能である`DB`クラスからデータベースを動かす。内容的にはほとんどSQL文に近いこと、ほとんどのケースでORMを使ってコードを書くと思われるので第5章を飛ばして第6章に取り組む。とはいえ、5章での内容が作業に必要になるので、4章から6章に移動するために必要な操作を以下に記録する。
+
+```bash
+#step1
+php artisan make:model Person -m #モデルとマイグレーションファイルを作成
+
+#step2
+#マイグレーションファイルを編集(下記参考)
+
+#step3
+touch database/database.sqlite #ファイルを作成
+
+#step4
+#設定ファイルの編集
+# config/database.php のデフォルト設定をsqliteにする。
+# .envファイルのDB_CONNECTIONをsqliteにする。
+# .envファイルのDB_DATABASEをdatabase/database.sqliteにする。←database.php の設定と同じことを書いているがなぜだろう？
+
+#step5
+php artisan migrate　#マイグレーションを実行
+
+#step6
+php artisan make:seeder PeopleTableSeeder #シーダーを用意する。
+
+#step7
+#DatabaseSeeder.phpに作成したシーダーを登録。
+
+#step8
+php artisan db:seed #シーダーを実行する。
+
+#step9
+#helloapp.blade.phpにstyleを追加する。(表の見え方を追加)
+```
+
+マイグレーションファイルの記述は本とv9.xでは異なる。以下のドキュメントを参考に記述していく。
+- [マイグレーション 9.x Laravel](https://readouble.com/laravel/9.x/ja/migrations.html)

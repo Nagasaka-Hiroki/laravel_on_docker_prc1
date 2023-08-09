@@ -2,7 +2,7 @@ version: "3.9"
 services:
   php:
     container_name: laravel_prj
-    image: php-bullseye:8.1.21
+    image: php-bullseye:8.2.8
     build:
       context: ./
       dockerfile: Dockerfile

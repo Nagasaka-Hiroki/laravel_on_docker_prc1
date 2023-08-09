@@ -14,3 +14,8 @@
 |アクションの前後に処理を追加|フィルタ<br>`before_action`<br>`after_action`<br>`around_action`|ミドルウェア<br>`return $next($request);`<br>`return $respomse;`<br>フォームリクエスト、カスタムバリデーション|
 |サーバーを起動|`rails server`|`php artisan serve`|
 |コンソールを操作|`rails console`|`php artisan tinker`|
+|ルーティングを表示|`rails routes`|`php artisan route:list`|
+
+## 参考
+- [【Laravel】ルートを確認できるartisan route:listコマンドを解説します｜たいらのエンジニアノート](https://www.tairaengineer-note.com/laravel-artisan-route-list-command/)
+- [ルーティング 9.x Laravel](https://readouble.com/laravel/9.x/ja/routing.html)

@@ -85,7 +85,7 @@ touch database/database.sqlite #ファイルを作成
 #設定ファイルの編集
 # config/database.php のデフォルト設定をsqliteにする。
 # .envファイルのDB_CONNECTIONをsqliteにする。
-# .envファイルのDB_DATABASEをdatabase/database.sqliteにする。←database.php の設定と同じことを書いているがなぜだろう？
+# .envファイルのDB_DATABASEをdatabase/database.sqliteにする。←database.php の設定と同じことを書いているがなぜだろう？ｰ>（※）
 
 #step5
 php artisan migrate　#マイグレーションを実行
@@ -105,3 +105,24 @@ php artisan db:seed #シーダーを実行する。
 
 マイグレーションファイルの記述は本とv9.xでは異なる。以下のドキュメントを参考に記述していく。
 - [マイグレーション 9.x Laravel](https://readouble.com/laravel/9.x/ja/migrations.html)
+
+---
+
+（※）追記。  
+公式ドキュメントを読んでいると設定についての記述があった。
+
+はじめは以下の設定を記述していた。
+```
+DB_CONNECTION=sqlite
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=/home/user01/prj/database/database.sqlite
+DB_USERNAME=root
+DB_PASSWORD=
+```
+しかし、以下のページを確認すると上記は不要ですべて削除しても良いということだった。
+- [データベースとマイグレーション｜インストール 9.x Laravel](https://readouble.com/laravel/9.x/ja/installation.html)
+
+実際に削除した状態で実行したが問題なく動作した。
+
+---

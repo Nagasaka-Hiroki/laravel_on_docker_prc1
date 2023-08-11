@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Person;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Redis;
 
 class PersonController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, Response $response)
     {
         $items = Person::all();
-        return view('person.index',['items'=>$items]);
+        return view('person.index',['items'=>$items,'request'=>$request,'response'=>$response]);
     }
     public function find(Request $request)
     {

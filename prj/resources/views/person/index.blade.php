@@ -16,6 +16,11 @@
         </tr>
         @endforeach
     </table>
+    <hr size="1">
+    <h2>Request</h2>
+    <pre>{{$request}}</pre>
+    <h2>Response</h2>
+    <pre>{{$response}}</pre>
 @endsection
 
 @section('footer')

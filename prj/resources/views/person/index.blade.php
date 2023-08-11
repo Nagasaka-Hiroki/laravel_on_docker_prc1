@@ -14,8 +14,12 @@
         <tr>
             <td>{{$item->getData()}}</td>
             <td>
-                @if ($item->board != null)
-                    {{$item->board->getData()}}
+                @if ($item->boards != null)
+                    <table width="100%">
+                        @foreach ($item->boards as $obj)
+                            <tr><td>{{$obj->getData()}}</td></tr>
+                        @endforeach
+                    </table>
                 @endif
             </td>
         </tr>
